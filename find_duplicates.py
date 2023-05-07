@@ -1,4 +1,4 @@
-lista_de_listas_de_inteiros = [
+lst_of_integers = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     [9, 3, 8, 9, 9, 7, 2, 1, 6, 8],
     [1, 3, 2, 2, 8, 6, 5, 9, 6, 7],
@@ -13,47 +13,35 @@ lista_de_listas_de_inteiros = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
 
-# lista_de_listas_de_inteiros = [0, 1, 2, 2, 3, 4, 5]
-set_lst = lista_de_listas_de_inteiros[0]
+# lst_of_integers = [0, 1, 2, 3, 4, 5]
+set_lst = lst_of_integers[0]
 
-def len_above_one(lista_de_listas_de_inteiros):
+def len_above_one(lst_of_integers):
     i = 1
     j = 0
     count = 0
-    while i < len(lista_de_listas_de_inteiros):
-        while j < len(lista_de_listas_de_inteiros[i]):
-            if lista_de_listas_de_inteiros[i][j] in set_lst:
-                print(lista_de_listas_de_inteiros[i][j])
+    while i < len(lst_of_integers):
+        while j < len(lst_of_integers[i]):
+            if lst_of_integers[i][j] in set_lst:
                 count = 1
-                break
+                return lst_of_integers[i][j]
             j += 1
-        if count == 1:
-            break
         i += 1
     if count == 0:
-        print(-1)
+        return -1
 
-# def len_below(lista_de_listas_de_inteiros):
-#     count = 0
-#     i = 1
-#     j = 0
-#     while i < len(lista_de_listas_de_inteiros):
-#         while j < len(lista_de_listas_de_inteiros):
-#             if lista_de_listas_de_inteiros[i] == lista_de_listas_de_inteiros[j]:
-#                 count += 1
-#                 if count == 1:
-#                     print(lista_de_listas_de_inteiros[i])
-#             j += 1
-#         if count == 2:
-#             break
-#         i += 1
-#     if count < 2:
-#         print(-1)
+def len_below(lst_of_integers):
+    match = set()
+    for i in lst_of_integers:
+        if i in match:
+            return i
+        match.add(i)
+    return -1
 
-def start_find(lista_de_listas_de_inteiros):
+def start_find(lst_of_integers):
     try:
-        len_above_one(lista_de_listas_de_inteiros)
+       return len_above_one(lst_of_integers)
     except:
-        len_below(lista_de_listas_de_inteiros)
+        return len_below(lst_of_integers)
 
-start_find(lista_de_listas_de_inteiros)
+print(start_find(lst_of_integers))
