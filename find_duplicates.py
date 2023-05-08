@@ -13,24 +13,7 @@ lst_of_integers = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
 
-# lst_of_integers = [0, 1, 2, 3, 4, 5]
-set_lst = lst_of_integers[0]
-
-def len_above_one(lst_of_integers):
-    i = 1
-    j = 0
-    count = 0
-    while i < len(lst_of_integers):
-        while j < len(lst_of_integers[i]):
-            if lst_of_integers[i][j] in set_lst:
-                count = 1
-                return lst_of_integers[i][j]
-            j += 1
-        i += 1
-    if count == 0:
-        return -1
-
-def len_below(lst_of_integers):
+def find_duplicates(lst_of_integers):
     match = set()
     for i in lst_of_integers:
         if i in match:
@@ -38,10 +21,6 @@ def len_below(lst_of_integers):
         match.add(i)
     return -1
 
-def start_find(lst_of_integers):
-    try:
-       return len_above_one(lst_of_integers)
-    except:
-        return len_below(lst_of_integers)
 
-print(start_find(lst_of_integers))
+for i in lst_of_integers:
+    print(i, "\nResult in above search:", find_duplicates(i), "\n")
