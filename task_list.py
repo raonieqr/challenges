@@ -35,19 +35,13 @@ def undo_file(lst, tmp):
     tmp.append(lst.pop())
     writes_file(lst)
 
-def view_file(lst):
-  if len(lst) == 0:
-    print("Your task list is empty")
-  else:
-    reads_file()
-
 print("Possible commands: view, redo, and undo")
 actions = input("Enter a command or task: ").lower()
 lst = []
 tmp = []
 while actions != "exit": 
   if actions == "view":
-    view_file(lst)
+    reads_file()
   elif actions == "undo":
     undo_file(lst, tmp)
   elif actions == "redo":
