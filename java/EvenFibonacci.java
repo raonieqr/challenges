@@ -1,6 +1,6 @@
 import java.lang.Math;
 
-public class EvenFibonacci {
+public class MaxPrime {
     public static final long number = 600851475143L;
     
     public static boolean checkPrime(long number) {
