@@ -4,13 +4,15 @@ public class MaxPrime {
     public static final long number = 600851475143L;
     
     public static boolean checkPrime(long number) {
-        if (number < 2)
-            return false;
-        for(long i = 2; i < Math.sqrt(number); i++) {
-            if (number % i == 0)
-                return false;
+        boolean backValue = false;
+        if (number > 2) {
+            for(long i = 2; i < Math.sqrt(number); i++) {
+                if (number % i == 0)
+                    return backValue;
+            }
+            backValue = true;
         }
-        return true;
+        return backValue;
     }
     
     public static void main(String args[]) {
