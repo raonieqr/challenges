@@ -24,35 +24,38 @@ class Temperature {
             temperatures.add(t);
         }
 
-        temperatures.add(0);
+        if (temperatures.size() == 1) {
+            System.out.println(temperatures.get(0));
+            return;
+        }
 
+        temperatures.add(0);
         Collections.sort(temperatures);
 
         int idx = temperatures.indexOf(0);
-    
+        if (idx == 0) {
+            System.out.println(temperatures.get(idx + 1));
+            return;
+        }
 
-        if(idx != 0) {
-            if (idx == (temperatures.size() - 1)) {
-                System.out.println(temperatures.get(idx - 1));
-                return;
-            }
+        if (idx == (temperatures.size() - 1)) {
+            System.out.println(temperatures.get(idx - 1));
+            return;
+        }
 
-            int nmb1 = temperatures.get(idx - 1);
-            int nmb2 = temperatures.get(idx + 1);
+        int nmb1 = temperatures.get(idx - 1);
+        int nmb2 = temperatures.get(idx + 1);
 
-            int negativeNumber = Math.abs(nmb1);
+        int negativeNumber = Math.abs(nmb1);
 
-            if (negativeNumber > nmb2) {
-                System.out.println(nmb2);
-                return;
-            }
-
-            if (negativeNumber == nmb2) {
-                System.out.println(nmb2);
-                return;
-            }
-            
+        if (negativeNumber > nmb2) {
+            System.out.println(nmb2);
+            return;
         }
         
+        if (negativeNumber == nmb2) {
+            System.out.println(nmb2);
+            return;
+        }
     }
 }
